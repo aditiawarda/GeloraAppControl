@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/status_absen_part"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/shape_option"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".75"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nama_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="18dp"
+                    android:text="NAMA KARYAWAN"
+                    android:textColor="#C16D02"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/nik_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0000011"
+                    android:textColor="#C16D02"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/jabatan_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Staff"
+                    android:textColor="#C16D02"
+                    android:textSize="11dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="18dp">
+
+                    <TextView
+                        android:id="@+id/bagian_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EDP"
+                        android:textColor="#C16D02"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" | "
+                        android:textColor="#C16D02"
+                        android:textSize="11dp" />
+
+                    <TextView
+                        android:id="@+id/dept_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RND"
+                        android:textColor="#C16D02"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:gravity="right|center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/default_profile"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="#C16D02"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Last Version App"
+                    android:textColor="#EA8500"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/device_use"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="App 1.1.33"
+                    android:textColor="#EA8500"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Status Registrasi"
+                    android:textColor="#EA8500"
+                    android:textSize="12dp" />
+
+                <Switch
+                    android:id="@+id/control_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/device_id_detail"
+                android:layout_width="0dp"
+                android:layout_weight=".75"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_device"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHECK DEVICE ID"
+                    android:textColor="#EA8500"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chat_btn"
+                android:layout_width="0dp"
+                android:layout_weight=".25"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/shape_device"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHAT"
+                    android:textColor="#EA8500"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

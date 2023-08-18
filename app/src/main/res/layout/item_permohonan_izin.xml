@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/parent_part"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/shape_notifikasi"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".80"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nama_karyawan_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="-"
+                android:textColor="#C16D02"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/nik_karyawan_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="#C16D02"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/line_limit"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:background="#2DEFB975"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/deskrisi_permohonan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:text="-"
+                android:textStyle="italic"
+                android:textColor="#C16D02"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tanggal_kirim_permohonan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="right"
+                android:text="-"
+                android:textColor="#C16D02"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

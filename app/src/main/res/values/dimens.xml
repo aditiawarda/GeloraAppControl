@@ -1,0 +1,28 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="topPadding" />
+    <dimen name="sidePadding" />
+
+    <dimen name="WheelItemTextSize">14sp</dimen>
+    <dimen name="WheelSelectedItemTextSize">20sp</dimen>
+    <dimen name="WheelItemSpace">12dp</dimen>
+    <dimen name="WheelIndicatorSize">2dp</dimen>
+    <dimen name="WheelMargins">8dp</dimen>
+    <dimen name="WheelItemHeightSpace">16dp</dimen>
+    <dimen name="WheelItemWidthSpace">32dp</dimen>
+
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="img_width_height">120dp</dimen>
+    <dimen name="slide_title">30dp</dimen>
+    <dimen name="slide_desc">16dp</dimen>
+    <dimen name="desc_padding">40dp</dimen>
+
+</resources>

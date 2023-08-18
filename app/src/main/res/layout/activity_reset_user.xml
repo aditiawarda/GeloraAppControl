@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResetUserActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_user_rv"
+                    android:layout_marginTop="95dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_below="@+id/head_part"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/head_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_main"
+            android:paddingTop="25dp"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:id="@+id/search_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    android:id="@+id/back_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_baseline_arrow_back"
+                    android:backgroundTint="#fff"
+                    android:foreground="@drawable/btn_effect" />
+
+                <EditText
+                    android:id="@+id/keyword_user_ed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_search"
+                    android:drawableLeft="@drawable/ic_baseline_search"
+                    android:drawablePadding="10dp"
+                    android:hint="Cari karyawan..."
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:paddingLeft="17dp"
+                    android:paddingTop="9dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#fff"
+                    android:textColorHighlight="#EC9426"
+                    android:textColorHint="#BFFFF3E9" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HRIS App Control</string>
+
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="LOADING">Loading…</string>
+
+    <string name="lbl_set_profile_photo">Atur Foto Profil</string>
+    <string name="lbl_take_camera_picture">Kamera</string>
+    <string name="lbl_choose_from_gallery">Pilih dari Galeri</string>
+    <string name="toast_image_intent_null">Image picker option is missing!</string>
+    <!-- font families -->
+    <string name="dialog_permission_title">Berikan Izin</string>
+    <string name="dialog_permission_message">Aplikasi ini memerlukan izin untuk menggunakan fitur ini. Anda dapat memberikannya di pengaturan aplikasi.</string>
+    <string name="go_to_settings">PENGATURAN</string>
+</resources>

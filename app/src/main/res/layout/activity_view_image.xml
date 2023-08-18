@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DE000000"
+    tools:context=".ViewImageActivity">
+
+    <ImageView
+        android:layout_marginTop="68dp"
+        android:id="@+id/main_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/loading_part"
+        android:gravity="center"
+        android:layout_marginTop="68dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:indeterminateTint="#FFBB65"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/head_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_main"
+            android:paddingTop="25dp"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    android:id="@+id/back_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_baseline_arrow_back"
+                    android:backgroundTint="#fff"
+                    android:foreground="@drawable/btn_effect" />
+
+                <TextView
+                    android:id="@+id/title_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:gravity="right"
+                    android:text="FOTO PROFIL"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

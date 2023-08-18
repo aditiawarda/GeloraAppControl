@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable-xxhdpi/shape_second.xml" value="0.1" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/ic_baseline_content_surat.xml" value="0.1985" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/ic_baseline_date.xml" value="0.111" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/ic_baseline_new_pengumuman.xml" value="0.1395" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/ic_baseline_notifications.xml" value="0.2165" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/ic_baseline_save_permohonan.xml" value="0.1985" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/ic_baseline_send.xml" value="0.111" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_btn.xml" value="0.111" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_btn_approved.xml" value="0.1985" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_btn_rejected.xml" value="0.1985" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_feel.xml" value="0.111" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_input_form.xml" value="0.111" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_new_pengumuman.xml" value="0.1395" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_notification_mark.xml" value="0.2165" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_notifikasi.xml" value="0.1985" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/drawable/shape_second_btn.xml" value="0.1985" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_detail_permohonan.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_device_detail.xml" value="0.21158690176322417" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_list_pengumuman.xml" value="0.1" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_list_permohonan.xml" value="0.19469026548672566" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_pengumuman.xml" value="0.2" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_reset_user.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/activity_view_image.xml" value="0.14114583333333333" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/item_control.xml" value="0.15896739130434784" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/item_device_id.xml" value="0.15896739130434784" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/item_pengumuman.xml" value="0.25" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/item_permohonan_izin.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/ADIT-PC/AndroidStudioProjects/GeloraAppControl/app/src/main/res/layout/item_user.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
