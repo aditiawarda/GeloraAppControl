@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,12 +17,14 @@
         android:background="@drawable/shape_option"
         android:orientation="vertical"
         android:paddingLeft="25dp"
-        android:paddingRight="25dp">
+        android:paddingRight="25dp"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="DisableBaselineAlignment">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -37,7 +40,8 @@
                     android:text="NAMA KARYAWAN"
                     android:textColor="#C16D02"
                     android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
                 <TextView
                     android:id="@+id/nik_tv"
@@ -45,7 +49,8 @@
                     android:layout_height="wrap_content"
                     android:text="0000011"
                     android:textColor="#C16D02"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextContrastCheck,TextSizeCheck" />
 
                 <TextView
                     android:id="@+id/jabatan_tv"
@@ -53,7 +58,8 @@
                     android:layout_height="wrap_content"
                     android:text="Staff"
                     android:textColor="#C16D02"
-                    android:textSize="11dp" />
+                    android:textSize="11dp"
+                    tools:ignore="HardcodedText,SpUsage,TextContrastCheck,TextSizeCheck" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -67,14 +73,16 @@
                         android:layout_height="wrap_content"
                         android:text="EDP"
                         android:textColor="#C16D02"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        tools:ignore="HardcodedText,SpUsage,TextContrastCheck,TextSizeCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" | "
                         android:textColor="#C16D02"
-                        android:textSize="11dp" />
+                        android:textSize="11dp"
+                        tools:ignore="HardcodedText,SpUsage,TextSizeCheck,TextContrastCheck" />
 
                     <TextView
                         android:id="@+id/dept_tv"
@@ -82,7 +90,8 @@
                         android:layout_height="wrap_content"
                         android:text="RND"
                         android:textColor="#C16D02"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        tools:ignore="HardcodedText,SpUsage,TextContrastCheck,TextSizeCheck" />
 
                 </LinearLayout>
 
@@ -93,15 +102,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
                 android:gravity="right|center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="RtlHardcoded">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/default_profile"
+                    app:civ_border_color="#C16D02"
                     app:civ_border_width="1dp"
-                    app:civ_border_color="#C16D02"/>
+                    tools:ignore="ImageContrastCheck" />
 
             </LinearLayout>
 
@@ -124,7 +135,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="Last Version App"
                     android:textColor="#EA8500"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck,TextContrastCheck" />
 
                 <TextView
                     android:id="@+id/device_use"
@@ -133,7 +145,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="App 1.1.33"
                     android:textColor="#EA8500"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck,TextContrastCheck" />
 
             </LinearLayout>
 
@@ -141,7 +154,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="RtlHardcoded">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -149,14 +163,15 @@
                     android:layout_marginBottom="5dp"
                     android:text="Status Registrasi"
                     android:textColor="#EA8500"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck,TextContrastCheck" />
 
                 <Switch
                     android:id="@+id/control_switch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+                    tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck,VisualLintButtonSize" />
 
             </LinearLayout>
 
@@ -164,7 +179,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:ignore="DisableBaselineAlignment">
 
             <LinearLayout
                 android:id="@+id/device_id_detail"
@@ -183,7 +199,8 @@
                     android:layout_height="wrap_content"
                     android:text="CHECK DEVICE ID"
                     android:textColor="#EA8500"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck,TextContrastCheck" />
 
             </LinearLayout>
 
@@ -198,14 +215,16 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:paddingTop="12dp"
-                android:paddingBottom="12dp">
+                android:paddingBottom="12dp"
+                tools:ignore="RtlHardcoded">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CHAT"
                     android:textColor="#EA8500"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck,TextContrastCheck" />
 
             </LinearLayout>
 

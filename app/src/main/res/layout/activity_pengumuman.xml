@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,7 +31,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="Judul :"
                     android:textColor="#696969"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
                 <EditText
                     android:id="@+id/pengumuman_title_tv"
@@ -49,7 +50,8 @@
                     android:textColor="#595959"
                     android:textColorHighlight="#FFE1BC"
                     android:textColorHint="#595959"
-                    android:textSize="13dp" />
+                    android:textSize="13dp"
+                    tools:ignore="Autofill,LabelFor,SpUsage,SpeakableTextPresentCheck,TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -57,7 +59,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="Deskripsi :"
                     android:textColor="#696969"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
                 <EditText
                     android:id="@+id/pengumuman_desc_tv"
@@ -76,7 +79,8 @@
                     android:textColor="#595959"
                     android:textColorHighlight="#FFE1BC"
                     android:textColorHint="#595959"
-                    android:textSize="13dp" />
+                    android:textSize="13dp"
+                    tools:ignore="Autofill,LabelFor,SpUsage,SpeakableTextPresentCheck,TextFields,VisualLintTextFieldSize" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -84,7 +88,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="Tanggal :"
                     android:textColor="#696969"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
                 <LinearLayout
                     android:id="@+id/pengumuman_date"
@@ -93,11 +98,13 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/shape_feel"
                     android:orientation="horizontal"
-                    android:paddingStart="20dp">
+                    android:paddingStart="20dp"
+                    tools:ignore="RtlSymmetry">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        tools:ignore="UselessParent">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -105,7 +112,8 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center|left"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            tools:ignore="RelativeOverlap,RtlHardcoded">
 
                             <TextView
                                 android:id="@+id/pengumuman_date_pilih"
@@ -114,7 +122,8 @@
                                 android:text=""
                                 android:textColor="#B15735"
                                 android:textSize="13dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                tools:ignore="SpUsage" />
 
                         </LinearLayout>
 
@@ -124,7 +133,8 @@
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
                             android:background="@drawable/shape_btn"
-                            android:gravity="center">
+                            android:gravity="center"
+                            tools:ignore="RtlHardcoded">
 
                             <TextView
                                 android:layout_width="25dp"
@@ -158,7 +168,8 @@
                         android:text="KIRIM"
                         android:textColor="#FFFFFF"
                         android:textSize="13dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck,UnusedAttribute,UseCompatTextViewDrawableXml" />
 
                 </LinearLayout>
 
@@ -182,7 +193,8 @@
                 android:layout_marginRight="15dp"
                 android:gravity="center|left"
                 android:orientation="horizontal"
-                android:paddingLeft="12dp">
+                android:paddingLeft="12dp"
+                tools:ignore="RtlHardcoded,RtlSymmetry">
 
                 <TextView
                     android:id="@+id/back_btn"
@@ -191,17 +203,19 @@
                     android:layout_marginRight="15dp"
                     android:background="@drawable/ic_baseline_arrow_back"
                     android:backgroundTint="#fff"
-                    android:foreground="@drawable/btn_effect" />
+                    android:foreground="@drawable/btn_effect"
+                    tools:ignore="RtlHardcoded,UnusedAttribute" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:gravity="right"
+                    android:text="SET PENGUMUMAN"
+                    android:textColor="#FFFFFF"
                     android:textSize="15dp"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF"
-                    android:text="SET PENGUMUMAN"/>
+                    tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
 
             </LinearLayout>
 

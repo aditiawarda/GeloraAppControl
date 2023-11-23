@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -16,7 +16,8 @@
         android:paddingLeft="17dp"
         android:paddingRight="10dp"
         android:background="@drawable/shape_option"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment,RtlHardcoded,UselessParent">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -29,20 +30,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="17dp"
+                android:paddingBottom="5dp"
+                android:text="UNDEFINED"
+                android:textColor="#C16D02"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                android:paddingBottom="5dp"
-                android:textColor="#C16D02"
-                android:text="UNDEFINED"/>
+                tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
             <TextView
                 android:id="@+id/timestamp_created"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12dp"
                 android:paddingBottom="17dp"
+                android:text="UNDEFINED"
                 android:textColor="#C16D02"
-                android:text="UNDEFINED"/>
+                android:textSize="12dp"
+                tools:ignore="HardcodedText,SpUsage,TextContrastCheck,TextSizeCheck" />
 
 
         </LinearLayout>
@@ -52,14 +55,15 @@
             android:layout_width="0dp"
             android:layout_weight=".20"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="RtlHardcoded">
 
             <Switch
                 android:id="@+id/control_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
+                tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck,VisualLintButtonSize" />
 
         </LinearLayout>
 

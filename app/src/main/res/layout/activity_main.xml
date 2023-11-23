@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,7 +37,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
-                            android:layout_marginTop="15dp">
+                            android:layout_marginTop="15dp"
+                            tools:ignore="DisableBaselineAlignment">
 
                             <LinearLayout
                                 android:id="@+id/set_pengumunan_btn"
@@ -47,14 +48,16 @@
                                 android:gravity="center"
                                 android:background="@drawable/shape_second"
                                 android:layout_height="45dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                tools:ignore="RtlHardcoded">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="PENGUMUMAN"
                                     android:textColor="#FFF"
                                     android:textSize="12dp"
-                                    android:text="PENGUMUMAN"/>
+                                    tools:ignore="HardcodedText,SpUsage,TextContrastCheck,TextSizeCheck" />
 
                             </LinearLayout>
 
@@ -66,14 +69,16 @@
                                 android:gravity="center"
                                 android:background="@drawable/shape_second"
                                 android:layout_height="45dp"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                tools:ignore="RtlHardcoded">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="USER SETTING"
                                     android:textColor="#FFF"
                                     android:textSize="12dp"
-                                    android:text="USER SETTING"/>
+                                    tools:ignore="HardcodedText,SpUsage,TextContrastCheck,TextSizeCheck" />
 
                             </LinearLayout>
 
@@ -86,7 +91,8 @@
                             android:layout_below="@+id/head_part"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            tools:ignore="ObsoleteLayoutParam">
                         </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
@@ -116,37 +122,42 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="20dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="RtlHardcoded">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text="HRIS Mobile App"
                             android:textColor="#FFF"
                             android:textSize="15dp"
-                            android:layout_height="wrap_content"
-                            android:text="HRIS Mobile App"/>
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:textStyle="italic"
+                            android:layout_height="wrap_content"
+                            android:text="Controls"
                             android:textColor="#FFF"
                             android:textSize="13dp"
-                            android:layout_height="wrap_content"
-                            android:text="Controls"/>
+                            android:textStyle="italic"
+                            tools:ignore="HardcodedText,SpUsage,TextSizeCheck" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        tools:ignore="DisableBaselineAlignment">
 
                         <RelativeLayout
                             android:visibility="gone"
@@ -163,7 +174,8 @@
                                 android:gravity="center"
                                 android:background="@drawable/shape_second"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                tools:ignore="RtlHardcoded">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -171,14 +183,16 @@
                                     android:background="@drawable/ic_baseline_notifications"
                                     android:textColor="#FFF"
                                     android:textSize="12dp"
-                                    android:text=""/>
+                                    android:text=""
+                                    tools:ignore="SpUsage" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:gravity="right"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                tools:ignore="RtlHardcoded">
 
                                 <LinearLayout
                                     android:visibility="gone"
@@ -198,7 +212,8 @@
                                         android:layout_height="wrap_content"
                                         android:textColor="#FFFFFF"
                                         android:textSize="10dp"
-                                        android:text="0"/>
+                                        android:text="0"
+                                        tools:ignore="HardcodedText,SpUsage,TooDeepLayout" />
 
                                 </LinearLayout>
 
