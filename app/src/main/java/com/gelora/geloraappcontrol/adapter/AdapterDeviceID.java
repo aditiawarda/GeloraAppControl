@@ -14,9 +14,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gelora.geloraappcontrol.DeviceDetailActivity;
-import com.gelora.geloraappcontrol.MainActivity;
 import com.gelora.geloraappcontrol.R;
-import com.gelora.geloraappcontrol.model.Control;
 import com.gelora.geloraappcontrol.model.DeviceID;
 
 public class AdapterDeviceID extends RecyclerView.Adapter<AdapterDeviceID.MyViewHolder> {

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -14,18 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gelora.geloraappcontrol.DeviceDetailActivity;
 import com.gelora.geloraappcontrol.ListPengumumanActivity;
 import com.gelora.geloraappcontrol.R;
-import com.gelora.geloraappcontrol.ResetUserActivity;
-import com.gelora.geloraappcontrol.ViewImageActivity;
 import com.gelora.geloraappcontrol.model.DataPengumuman;
-import com.gelora.geloraappcontrol.model.UserSearch;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterPengumuman extends RecyclerView.Adapter<AdapterPengumuman.MyViewHolder> {
 
