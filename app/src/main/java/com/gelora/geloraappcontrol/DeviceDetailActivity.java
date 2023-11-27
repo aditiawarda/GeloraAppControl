@@ -75,25 +75,12 @@ public class DeviceDetailActivity extends AppCompatActivity {
 
         swipeRefreshLayout = findViewById(R.id.swipe_to_refresh_layout);
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_green_dark, android.R.color.holo_blue_dark, android.R.color.holo_orange_dark, android.R.color.holo_red_dark);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
-                        getDevice(nikUser);
-                    }
-                }, 800);
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(() -> {
+            swipeRefreshLayout.setRefreshing(false);
+            getDevice(nikUser);
+        }, 800));
 
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        backBTN.setOnClickListener(v -> onBackPressed());
 
         namaUserTV.setText(namaUser.toUpperCase());
         nikUserTV.setText(nikUser);
@@ -126,24 +113,21 @@ public class DeviceDetailActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/get_device_id";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        try {
-                            Log.d("Success.Response", response.toString());
+                response -> {
+                    // response
+                    try {
+                        Log.d("Success.Response", response);
 
-                            JSONObject data = new JSONObject(response);
-                            String list = data.getString("data");
-                            GsonBuilder builder =new GsonBuilder();
-                            Gson gson = builder.create();
-                            deviceIDS = gson.fromJson(list, DeviceID[].class);
-                            adapterDeviceID = new AdapterDeviceID(deviceIDS, DeviceDetailActivity.this);
-                            deviceRV.setAdapter(adapterDeviceID);
+                        JSONObject data = new JSONObject(response);
+                        String list = data.getString("data");
+                        GsonBuilder builder =new GsonBuilder();
+                        Gson gson = builder.create();
+                        deviceIDS = gson.fromJson(list, DeviceID[].class);
+                        adapterDeviceID = new AdapterDeviceID(deviceIDS, DeviceDetailActivity.this);
+                        deviceRV.setAdapter(adapterDeviceID);
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 },
                 new Response.ErrorListener()
@@ -159,7 +143,7 @@ public class DeviceDetailActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
+                Map<String, String>  params = new HashMap<>();
                 params.put("NIK", nik);
                 return params;
             }
@@ -173,15 +157,12 @@ public class DeviceDetailActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/set_device_id";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("Success.Response", response.toString());
+                response -> {
+                    // response
+                    Log.d("Success.Response", response.toString());
 
-                        getDevice(nikUser);
+                    getDevice(nikUser);
 
-                    }
                 },
                 new Response.ErrorListener()
                 {
@@ -197,7 +178,7 @@ public class DeviceDetailActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
+                Map<String, String>  params = new HashMap<>();
 
                 params.put("id", id);
                 params.put("status", status);

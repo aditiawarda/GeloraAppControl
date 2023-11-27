@@ -207,7 +207,7 @@ public class ListPengumumanActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
+                Map<String, String>  params = new HashMap<>();
                 params.put("request", "request");
                 return params;
             }
