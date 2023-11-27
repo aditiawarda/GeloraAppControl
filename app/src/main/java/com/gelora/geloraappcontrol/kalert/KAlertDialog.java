@@ -29,7 +29,6 @@ public class KAlertDialog extends AlertDialog implements View.OnClickListener {
 
     private final AnimationSet mModalInAnim, mModalOutAnim, mErrorXInAnim;
     private final Animation mOverlayOutAnim, mImageAnim;
-
     private TextView mTitleTextView, mContentTextView;
     private ImageView mErrorX, mSuccessTick, mCustomImage;
     private Drawable mCustomImgDrawable;
@@ -38,28 +37,21 @@ public class KAlertDialog extends AlertDialog implements View.OnClickListener {
     private View mDialogView;
     private View mCustomView;
     private FrameLayout mCustomViewContainer;
-
     private String mTitleText, mContentText, mCancelText, mConfirmText;
-
     private boolean mShowCancel, mShowContent, mShowTitleText, mCloseFromCancel, mShowConfirm;
     private int contentTextSize = 0;
     private int titleTextSize = 0;
-
     private FrameLayout mErrorFrame, mSuccessFrame, mProgressFrame, mWarningFrame;
-
     private final ProgressHelper mProgressHelper;
     private KAlertClickListener mCancelClickListener;
     private KAlertClickListener mConfirmClickListener;
-
     private int mAlertType;
     public static final int NORMAL_TYPE = 0;
-
     public static final int ERROR_TYPE = 1;
     public static final int SUCCESS_TYPE = 2;
     public static final int WARNING_TYPE = 3;
     public static final int CUSTOM_IMAGE_TYPE = 4;
     public static final int PROGRESS_TYPE = 5;
-
     public static boolean DARK_STYLE = false;
 
     public interface KAlertClickListener {
@@ -242,8 +234,6 @@ public class KAlertDialog extends AlertDialog implements View.OnClickListener {
             mContentTextView.setAutoLinkMask(Linkify.ALL);
         }
     }
-
-
 
     public KAlertDialog setCustomImage(int resourceId, Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
