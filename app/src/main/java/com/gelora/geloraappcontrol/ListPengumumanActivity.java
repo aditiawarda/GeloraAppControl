@@ -67,32 +67,16 @@ public class ListPengumumanActivity extends AppCompatActivity {
 
         swipeRefreshLayout = findViewById(R.id.swipe_to_refresh_layout);
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_green_dark, android.R.color.holo_blue_dark, android.R.color.holo_orange_dark, android.R.color.holo_red_dark);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
-                        getPengumuman();
-                    }
-                }, 800);
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(() -> {
+            swipeRefreshLayout.setRefreshing(false);
+            getPengumuman();
+        }, 800));
 
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        backBTN.setOnClickListener(v -> onBackPressed());
 
-        newPengumumanBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ListPengumumanActivity.this, PengumumanActivity.class);
-                startActivity(intent);
-            }
+        newPengumumanBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(ListPengumumanActivity.this, PengumumanActivity.class);
+            startActivity(intent);
         });
 
         getPengumuman();
@@ -123,13 +107,10 @@ public class ListPengumumanActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/set_pengumuman_update";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("Success.Response", response.toString());
-                        getPengumuman();
-                    }
+                response -> {
+                    // response
+                    Log.d("Success.Response", response);
+                    getPengumuman();
                 },
                 new Response.ErrorListener()
                 {
@@ -166,32 +147,29 @@ public class ListPengumumanActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/list_data_pengumuman";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("Success.Response", response.toString());
+                response -> {
+                    // response
+                    Log.d("Success.Response", response);
 
-                        JSONObject data = null;
-                        try {
-                            data = new JSONObject(response);
-                            String status = data.getString("status");
+                    JSONObject data = null;
+                    try {
+                        data = new JSONObject(response);
+                        String status = data.getString("status");
 
-                            if (status.equals("Success")){
-                                String list = data.getString("data");
-                                GsonBuilder builder =new GsonBuilder();
-                                Gson gson = builder.create();
-                                dataPengumuman = gson.fromJson(list, DataPengumuman[].class);
-                                adapterPengumuman = new AdapterPengumuman(dataPengumuman, ListPengumumanActivity.this);
-                                pengumumanRV.setAdapter(adapterPengumuman);
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        if (status.equals("Success")){
+                            String list = data.getString("data");
+                            GsonBuilder builder =new GsonBuilder();
+                            Gson gson = builder.create();
+                            dataPengumuman = gson.fromJson(list, DataPengumuman[].class);
+                            adapterPengumuman = new AdapterPengumuman(dataPengumuman, ListPengumumanActivity.this);
+                            pengumumanRV.setAdapter(adapterPengumuman);
                         }
 
-
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+
+
                 },
                 new Response.ErrorListener()
                 {
