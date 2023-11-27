@@ -22,8 +22,8 @@ import com.gelora.geloraappcontrol.model.Control;
 
 public class AdapterListControl extends RecyclerView.Adapter<AdapterListControl.MyViewHolder> {
 
-    private Control[] data;
-    private Context mContext;
+    private final Control[] data;
+    private final Context mContext;
 
     public AdapterListControl(Control[] data, MainActivity context) {
         this.data = data;
@@ -51,22 +51,17 @@ public class AdapterListControl extends RecyclerView.Adapter<AdapterListControl.
             myViewHolder.controlSwitch.setChecked(false);
         }
 
-        myViewHolder.controlSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (myViewHolder.controlSwitch.isChecked()) {
-                    //di aktifkan
-                    Intent intent = new Intent("aktifkan");
-                    intent.putExtra("id_control",control.getId());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-
-                } else {
-                    //di nonaktifkan
-                    Intent intent = new Intent("non-aktifkan");
-                    intent.putExtra("id_control",control.getId());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-
-                }
+        myViewHolder.controlSwitch.setOnClickListener(v -> {
+            if (myViewHolder.controlSwitch.isChecked()) {
+                //di aktifkan
+                Intent intent = new Intent("aktifkan");
+                intent.putExtra("id_control",control.getId());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
+            } else {
+                //di nonaktifkan
+                Intent intent = new Intent("non-aktifkan");
+                intent.putExtra("id_control",control.getId());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
             }
         });
 
@@ -79,6 +74,7 @@ public class AdapterListControl extends RecyclerView.Adapter<AdapterListControl.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView controlName;
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch controlSwitch;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

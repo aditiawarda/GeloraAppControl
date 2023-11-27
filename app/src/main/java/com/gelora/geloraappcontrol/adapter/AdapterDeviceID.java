@@ -21,8 +21,8 @@ import com.gelora.geloraappcontrol.model.DeviceID;
 
 public class AdapterDeviceID extends RecyclerView.Adapter<AdapterDeviceID.MyViewHolder> {
 
-    private DeviceID[] data;
-    private Context mContext;
+    private final DeviceID[] data;
+    private final Context mContext;
 
     public AdapterDeviceID(DeviceID[] data, DeviceDetailActivity context) {
         this.data = data;
@@ -51,22 +51,17 @@ public class AdapterDeviceID extends RecyclerView.Adapter<AdapterDeviceID.MyView
             myViewHolder.controlSwitch.setChecked(false);
         }
 
-        myViewHolder.controlSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (myViewHolder.controlSwitch.isChecked()) {
-                    //di aktifkan
-                    Intent intent = new Intent("aktifkan");
-                    intent.putExtra("id",deviceID.getId());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-
-                } else {
-                    //di nonaktifkan
-                    Intent intent = new Intent("non-aktifkan");
-                    intent.putExtra("id",deviceID.getId());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-
-                }
+        myViewHolder.controlSwitch.setOnClickListener(v -> {
+            if (myViewHolder.controlSwitch.isChecked()) {
+                //di aktifkan
+                Intent intent = new Intent("aktifkan");
+                intent.putExtra("id",deviceID.getId());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
+            } else {
+                //di nonaktifkan
+                Intent intent = new Intent("non-aktifkan");
+                intent.putExtra("id",deviceID.getId());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
             }
         });
 
@@ -79,6 +74,7 @@ public class AdapterDeviceID extends RecyclerView.Adapter<AdapterDeviceID.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView deviceIDKey, createdDate;
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch controlSwitch;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

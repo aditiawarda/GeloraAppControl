@@ -28,8 +28,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterListUser extends RecyclerView.Adapter<AdapterListUser.MyViewHolder> {
 
-    private UserSearch[] data;
-    private Context mContext;
+    private final UserSearch[] data;
+    private final Context mContext;
 
     public AdapterListUser(UserSearch[] data, ResetUserActivity context) {
         this.data = data;
@@ -56,20 +56,17 @@ public class AdapterListUser extends RecyclerView.Adapter<AdapterListUser.MyView
             myViewHolder.controlSwitch.setChecked(false);
         }
 
-        myViewHolder.controlSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (myViewHolder.controlSwitch.isChecked()) {
-                    //di aktifkan
-                    Intent intent = new Intent("aktif");
-                    intent.putExtra("nik",userSearch.getNIK());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-                } else {
-                    //di nonaktifkan
-                    Intent intent = new Intent("reset");
-                    intent.putExtra("nik",userSearch.getNIK());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-                }
+        myViewHolder.controlSwitch.setOnClickListener(v -> {
+            if (myViewHolder.controlSwitch.isChecked()) {
+                //di aktifkan
+                Intent intent = new Intent("aktif");
+                intent.putExtra("nik",userSearch.getNIK());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
+            } else {
+                //di nonaktifkan
+                Intent intent = new Intent("reset");
+                intent.putExtra("nik",userSearch.getNIK());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
             }
         });
 
@@ -86,36 +83,27 @@ public class AdapterListUser extends RecyclerView.Adapter<AdapterListUser.MyView
         myViewHolder.departemenTV.setText(userSearch.getDepartemen());
         myViewHolder.deviceUse.setText(userSearch.getDevice());
 
-        myViewHolder.profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, ViewImageActivity.class);
-                intent.putExtra("url","https://geloraaksara.co.id/absen-online/upload/avatar/"+userSearch.getAvatar());
-                mContext.startActivity(intent);
-            }
+        myViewHolder.profileImage.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, ViewImageActivity.class);
+            intent.putExtra("url","https://geloraaksara.co.id/absen-online/upload/avatar/"+userSearch.getAvatar());
+            mContext.startActivity(intent);
         });
 
-        myViewHolder.deviceIdDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, DeviceDetailActivity.class);
-                intent.putExtra("nik",userSearch.getNIK());
-                intent.putExtra("nama",userSearch.getNama());
-                mContext.startActivity(intent);
-            }
+        myViewHolder.deviceIdDetail.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, DeviceDetailActivity.class);
+            intent.putExtra("nik",userSearch.getNIK());
+            intent.putExtra("nama",userSearch.getNama());
+            mContext.startActivity(intent);
         });
 
         if(String.valueOf(userSearch.getNo_hp()).equals("")||userSearch.getNo_hp()==null){
             myViewHolder.chatBTN.setVisibility(View.GONE);
         } else {
-            myViewHolder.chatBTN.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String contact = String.valueOf(userSearch.getNo_hp());
-                    contact = "62" + contact.substring(1, contact.length());
-                    Intent webIntent = new Intent(Intent.ACTION_VIEW); webIntent.setData(Uri.parse("https://api.whatsapp.com/send?phone=+"+contact+"&text="));
-                    mContext.startActivity(webIntent);
-                }
+            myViewHolder.chatBTN.setOnClickListener(v -> {
+                String contact = String.valueOf(userSearch.getNo_hp());
+                contact = "62" + contact.substring(1, contact.length());
+                Intent webIntent = new Intent(Intent.ACTION_VIEW); webIntent.setData(Uri.parse("https://api.whatsapp.com/send?phone=+"+contact+"&text="));
+                mContext.startActivity(webIntent);
             });
         }
 

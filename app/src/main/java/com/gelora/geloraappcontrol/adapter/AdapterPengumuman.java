@@ -29,8 +29,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterPengumuman extends RecyclerView.Adapter<AdapterPengumuman.MyViewHolder> {
 
-    private DataPengumuman[] data;
-    private Context mContext;
+    private final DataPengumuman[] data;
+    private final Context mContext;
 
     public AdapterPengumuman(DataPengumuman[] data, ListPengumumanActivity context) {
         this.data = data;
@@ -57,20 +57,17 @@ public class AdapterPengumuman extends RecyclerView.Adapter<AdapterPengumuman.My
             myViewHolder.controlSwitch.setChecked(false);
         }
 
-        myViewHolder.controlSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (myViewHolder.controlSwitch.isChecked()) {
-                    //di aktifkan
-                    Intent intent = new Intent("aktifkan");
-                    intent.putExtra("id",dataPengumuman.getId());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-                } else {
-                    //di nonaktifkan
-                    Intent intent = new Intent("non-aktifkan");
-                    intent.putExtra("id",dataPengumuman.getId());
-                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
-                }
+        myViewHolder.controlSwitch.setOnClickListener(v -> {
+            if (myViewHolder.controlSwitch.isChecked()) {
+                //di aktifkan
+                Intent intent = new Intent("aktifkan");
+                intent.putExtra("id",dataPengumuman.getId());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
+            } else {
+                //di nonaktifkan
+                Intent intent = new Intent("non-aktifkan");
+                intent.putExtra("id",dataPengumuman.getId());
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
             }
         });
 

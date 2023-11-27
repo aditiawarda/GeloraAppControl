@@ -51,19 +51,9 @@ public class ViewImageActivity extends AppCompatActivity {
                     .into(mainImage);
         }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingPart.setVisibility(View.GONE);
-            }
-        }, 1000);
+        new Handler().postDelayed(() -> loadingPart.setVisibility(View.GONE), 1000);
 
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        backBTN.setOnClickListener(v -> onBackPressed());
 
     }
 
