@@ -74,12 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
         swipeRefreshLayout = findViewById(R.id.swipe_to_refresh_layout);
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_green_dark, android.R.color.holo_blue_dark, android.R.color.holo_orange_dark, android.R.color.holo_red_dark);
-        swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                swipeRefreshLayout.setRefreshing(false);
-                getControl();
-            }
+        swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(() -> {
+            swipeRefreshLayout.setRefreshing(false);
+            getControl();
         }, 800));
 
         pengumunanSetBTN.setOnClickListener(v -> {
@@ -119,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private void getControl() {
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         final String url = "https://geloraaksara.co.id/absen-online/api/list_control";
+        //connectionFailed();
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     Log.e("PaRSE JSON", response + "");
@@ -133,13 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                //connectionFailed();
-            }
-        });
+                }, Throwable::printStackTrace);
 
         requestQueue.add(request);
 
