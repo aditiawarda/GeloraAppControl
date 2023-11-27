@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout countNotification, resetUser, permohonanMasukBTN, pengumunanSetBTN;
     TextView countNotificationTV;
-    //TextToSpeech TTS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
     private void getControl() {
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         final String url = "https://geloraaksara.co.id/absen-online/api/list_control";
-        //connectionFailed();
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     Log.e("PaRSE JSON", response + "");
@@ -148,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 error -> {
                     // error
                     Log.d("Error.Response", error.toString());
-                    //connectionFailed();
                 }
         )
         {
@@ -197,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
                 error -> {
                     // error
                     Log.d("Error.Response", error.toString());
-                    //connectionFailed();
                 }
         )
         {

@@ -15,24 +15,15 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.gelora.geloraappcontrol.adapter.AdapterDeviceID;
-import com.gelora.geloraappcontrol.adapter.AdapterListControl;
-import com.gelora.geloraappcontrol.adapter.AdapterListUser;
-import com.gelora.geloraappcontrol.model.Control;
 import com.gelora.geloraappcontrol.model.DeviceID;
-import com.gelora.geloraappcontrol.model.UserSearch;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -130,13 +121,9 @@ public class DeviceDetailActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
                 }
         )
         {
@@ -164,14 +151,9 @@ public class DeviceDetailActivity extends AppCompatActivity {
                     getDevice(nikUser);
 
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                        //connectionFailed();
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
                 }
         )
         {

@@ -15,21 +15,16 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.gelora.geloraappcontrol.adapter.AdapterDeviceID;
 import com.gelora.geloraappcontrol.adapter.AdapterPengumuman;
 import com.gelora.geloraappcontrol.model.DataPengumuman;
-import com.gelora.geloraappcontrol.model.DeviceID;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -112,25 +107,19 @@ public class ListPengumumanActivity extends AppCompatActivity {
                     Log.d("Success.Response", response);
                     getPengumuman();
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                        //connectionFailed();
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
+                    //connectionFailed();
                 }
         )
         {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
-
+                Map<String, String>  params = new HashMap<>();
                 params.put("id", id);
                 params.put("status", status);
-
                 return params;
             }
         };
@@ -150,8 +139,7 @@ public class ListPengumumanActivity extends AppCompatActivity {
                 response -> {
                     // response
                     Log.d("Success.Response", response);
-
-                    JSONObject data = null;
+                    JSONObject data;
                     try {
                         data = new JSONObject(response);
                         String status = data.getString("status");
@@ -164,21 +152,13 @@ public class ListPengumumanActivity extends AppCompatActivity {
                             adapterPengumuman = new AdapterPengumuman(dataPengumuman, ListPengumumanActivity.this);
                             pengumumanRV.setAdapter(adapterPengumuman);
                         }
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                        //connectionFailed();
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
                 }
         )
         {

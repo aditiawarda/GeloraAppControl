@@ -7,8 +7,6 @@ import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -19,15 +17,9 @@ import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.gelora.geloraappcontrol.adapter.AdapterDeviceID;
 import com.gelora.geloraappcontrol.kalert.KAlertDialog;
-import com.gelora.geloraappcontrol.model.DeviceID;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,18 +52,15 @@ public class PengumumanActivity extends AppCompatActivity {
 
         backBTN.setOnClickListener(v -> onBackPressed());
 
-        pengumumanDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InputMethodManager imm = (InputMethodManager) PengumumanActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-                View view = PengumumanActivity.this.getCurrentFocus();
-                if (view == null) {
-                    view = new View(PengumumanActivity.this);
-                }
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
-                datePicker();
+        pengumumanDate.setOnClickListener(v -> {
+            InputMethodManager imm = (InputMethodManager) PengumumanActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            View view = PengumumanActivity.this.getCurrentFocus();
+            if (view == null) {
+                view = new View(PengumumanActivity.this);
             }
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+            datePicker();
         });
 
         submitBTN.setOnClickListener(v -> {
@@ -91,7 +80,7 @@ public class PengumumanActivity extends AppCompatActivity {
                             .setTitleText("Perhatian")
                             .setContentText("Harap isi semua data!")
                             .setConfirmText("    OK    ")
-                            .setConfirmClickListener(sDialog -> sDialog.dismiss())
+                            .setConfirmClickListener(AppCompatDialog::dismiss)
                             .show();
 
                     } else {
@@ -101,12 +90,7 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi judul dan deskripsi pengumuman!")
                                 .setConfirmText("    OK    ")
-                                .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                    @Override
-                                    public void onClick(KAlertDialog sDialog) {
-                                        sDialog.dismiss();
-                                    }
-                                })
+                                .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
 
                     }
@@ -118,12 +102,7 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi judul dan tanggal pengumuman!")
                                 .setConfirmText("    OK    ")
-                                .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                    @Override
-                                    public void onClick(KAlertDialog sDialog) {
-                                        sDialog.dismiss();
-                                    }
-                                })
+                                .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
 
                     } else {
@@ -157,12 +136,7 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi deskripsi pengumuman!")
                                 .setConfirmText("    OK    ")
-                                .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                    @Override
-                                    public void onClick(KAlertDialog sDialog) {
-                                        sDialog.dismiss();
-                                    }
-                                })
+                                .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
 
                     }
@@ -280,7 +254,7 @@ public class PengumumanActivity extends AppCompatActivity {
                 }
 
                 String dayDate = input_date.substring(8,10);
-                String yearDate = input_date.substring(0,4);;
+                String yearDate = input_date.substring(0,4);
                 String bulanValue = input_date.substring(5,7);
                 String bulanName;
 
@@ -338,58 +312,51 @@ public class PengumumanActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/set_pengumuman";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        JSONObject data = null;
-                        try {
-                            Log.d("Success.Response", response);
-                            data = new JSONObject(response);
-                            String status = data.getString("status");
-                            if (status.equals("Success")) {
+                response -> {
+                    // response
+                    JSONObject data;
+                    try {
+                        Log.d("Success.Response", response);
+                        data = new JSONObject(response);
+                        String status = data.getString("status");
+                        if (status.equals("Success")) {
 
-                                pengumumanTitleTV.setText("");
-                                pengumumanDescTV.setText("");
-                                pengumumanDatePilih.setText("");
-                                dateChoice = "";
+                            pengumumanTitleTV.setText("");
+                            pengumumanDescTV.setText("");
+                            pengumumanDatePilih.setText("");
+                            dateChoice = "";
 
-                                pengumumanTitleTV.clearFocus();
-                                pengumumanDescTV.clearFocus();
+                            pengumumanTitleTV.clearFocus();
+                            pengumumanDescTV.clearFocus();
 
-                                pDialog.setTitleText("Terkirim")
-                                        .setContentText("Pengumuman berhasil terkirim!")
-                                        .setConfirmText("    OK    ")
-                                        .setConfirmClickListener(sDialog -> {
-                                            pDialog.dismiss();
-                                            onBackPressed();
-                                        })
-                                        .changeAlertType(KAlertDialog.SUCCESS_TYPE);
+                            pDialog.setTitleText("Terkirim")
+                                    .setContentText("Pengumuman berhasil terkirim!")
+                                    .setConfirmText("    OK    ")
+                                    .setConfirmClickListener(sDialog -> {
+                                        pDialog.dismiss();
+                                        onBackPressed();
+                                    })
+                                    .changeAlertType(KAlertDialog.SUCCESS_TYPE);
 
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                        pDialog.setTitleText("Opss")
-                            .setContentText("Terjadi kesalahan!")
-                            .setConfirmText("    OK    ")
-                            .changeAlertType(KAlertDialog.ERROR_TYPE);
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
+                    pDialog.setTitleText("Opss")
+                        .setContentText("Terjadi kesalahan!")
+                        .setConfirmText("    OK    ")
+                        .changeAlertType(KAlertDialog.ERROR_TYPE);
                 }
         )
         {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
+                Map<String, String>  params = new HashMap<>();
                 params.put("pengumuman_title", pengumumanTitleTV.getText().toString());
                 params.put("pengumuman_desc", pengumumanDescTV.getText().toString());
                 params.put("pengumuman_date", dateChoice);
