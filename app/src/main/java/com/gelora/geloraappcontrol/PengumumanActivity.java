@@ -1,6 +1,7 @@
 package com.gelora.geloraappcontrol;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDialog;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
@@ -57,12 +58,7 @@ public class PengumumanActivity extends AppCompatActivity {
         pengumumanDate = findViewById(R.id.pengumuman_date);
         submitBTN = findViewById(R.id.submit_btn);
 
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        backBTN.setOnClickListener(v -> onBackPressed());
 
         pengumumanDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,24 +74,32 @@ public class PengumumanActivity extends AppCompatActivity {
             }
         });
 
-        submitBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InputMethodManager imm = (InputMethodManager) PengumumanActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-                View view = PengumumanActivity.this.getCurrentFocus();
-                if (view == null) {
-                    view = new View(PengumumanActivity.this);
-                }
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        submitBTN.setOnClickListener(v -> {
+            InputMethodManager imm = (InputMethodManager) PengumumanActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            View view = PengumumanActivity.this.getCurrentFocus();
+            if (view == null) {
+                view = new View(PengumumanActivity.this);
+            }
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                if(pengumumanTitleTV.getText().toString().equals("")){
-                    if(pengumumanDescTV.getText().toString().equals("")){
-                        if(dateChoice.equals("")){
-                            // isi tanggal, desc dan title
+            if(pengumumanTitleTV.getText().toString().equals("")){
+                if(pengumumanDescTV.getText().toString().equals("")){
+                    if(dateChoice.equals("")){
+                        // isi tanggal, desc dan title
 
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
+                            .setTitleText("Perhatian")
+                            .setContentText("Harap isi semua data!")
+                            .setConfirmText("    OK    ")
+                            .setConfirmClickListener(sDialog -> sDialog.dismiss())
+                            .show();
+
+                    } else {
+                        // isi desc dan title
+
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                                 .setTitleText("Perhatian")
-                                .setContentText("Harap isi semua data!")
+                                .setContentText("Harap isi judul dan deskripsi pengumuman!")
                                 .setConfirmText("    OK    ")
                                 .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
                                     @Override
@@ -105,174 +109,135 @@ public class PengumumanActivity extends AppCompatActivity {
                                 })
                                 .show();
 
-                        } else {
-                            // isi desc dan title
-
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
-                                    .setTitleText("Perhatian")
-                                    .setContentText("Harap isi judul dan deskripsi pengumuman!")
-                                    .setConfirmText("    OK    ")
-                                    .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-                                        }
-                                    })
-                                    .show();
-
-                        }
-                    } else {
-                        if(dateChoice.equals("")){
-                            // isi tanggal dan title
-
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
-                                    .setTitleText("Perhatian")
-                                    .setContentText("Harap isi judul dan tanggal pengumuman!")
-                                    .setConfirmText("    OK    ")
-                                    .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-                                        }
-                                    })
-                                    .show();
-
-                        } else {
-                            // isi title
-
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
-                                    .setTitleText("Perhatian")
-                                    .setContentText("Harap isi judul pengumuman!")
-                                    .setConfirmText("    OK    ")
-                                    .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-                                        }
-                                    })
-                                    .show();
-
-                        }
                     }
                 } else {
-                    if(pengumumanDescTV.getText().toString().equals("")){
-                        if(dateChoice.equals("")){
-                            // isi tanggal, desc
+                    if(dateChoice.equals("")){
+                        // isi tanggal dan title
 
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
-                                    .setTitleText("Perhatian")
-                                    .setContentText("Harap isi deskripsi dan tanggal pengumuman!")
-                                    .setConfirmText("    OK    ")
-                                    .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-                                        }
-                                    })
-                                    .show();
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
+                                .setTitleText("Perhatian")
+                                .setContentText("Harap isi judul dan tanggal pengumuman!")
+                                .setConfirmText("    OK    ")
+                                .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
+                                    @Override
+                                    public void onClick(KAlertDialog sDialog) {
+                                        sDialog.dismiss();
+                                    }
+                                })
+                                .show();
 
-                        } else {
-                            // isi desc
-
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
-                                    .setTitleText("Perhatian")
-                                    .setContentText("Harap isi deskripsi pengumuman!")
-                                    .setConfirmText("    OK    ")
-                                    .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-                                        }
-                                    })
-                                    .show();
-
-                        }
                     } else {
-                        if(dateChoice.equals("")){
-                            // isi tanggal
+                        // isi title
 
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
-                                    .setTitleText("Perhatian")
-                                    .setContentText("Harap isi tanggal pengumuman!")
-                                    .setConfirmText("    OK    ")
-                                    .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-                                        }
-                                    })
-                                    .show();
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
+                                .setTitleText("Perhatian")
+                                .setContentText("Harap isi judul pengumuman!")
+                                .setConfirmText("    OK    ")
+                                .setConfirmClickListener(AppCompatDialog::dismiss)
+                                .show();
 
-                        } else {
-                            // lengkap
-
-                            new KAlertDialog(PengumumanActivity.this, KAlertDialog.WARNING_TYPE)
-                                    .setTitleText("Kirim pengumuman?")
-                                    .setContentText("Yakin untuk kirim pengumuman sekarang?")
-                                    .setCancelText("TIDAK")
-                                    .setConfirmText("   YA   ")
-                                    .showCancelButton(true)
-                                    .setCancelClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-                                        }
-                                    })
-                                    .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                        @Override
-                                        public void onClick(KAlertDialog sDialog) {
-                                            sDialog.dismiss();
-
-                                            pDialog = new KAlertDialog(PengumumanActivity.this, KAlertDialog.PROGRESS_TYPE)
-                                                    .setTitleText("Loading");
-                                            pDialog.show();
-                                            pDialog.setCancelable(false);
-                                            new CountDownTimer(1000, 500) {
-                                                public void onTick(long millisUntilFinished) {
-                                                    i++;
-                                                    switch (i) {
-                                                        case 0:
-                                                            pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
-                                                                    (PengumumanActivity.this, R.color.colorGradien));
-                                                            break;
-                                                        case 1:
-                                                            pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
-                                                                    (PengumumanActivity.this, R.color.colorGradien2));
-                                                            break;
-                                                        case 2:
-                                                        case 6:
-                                                            pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
-                                                                    (PengumumanActivity.this, R.color.colorGradien3));
-                                                            break;
-                                                        case 3:
-                                                            pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
-                                                                    (PengumumanActivity.this, R.color.colorGradien4));
-                                                            break;
-                                                        case 4:
-                                                            pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
-                                                                    (PengumumanActivity.this, R.color.colorGradien5));
-                                                            break;
-                                                        case 5:
-                                                            pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
-                                                                    (PengumumanActivity.this, R.color.colorGradien6));
-                                                            break;
-                                                    }
-                                                }
-                                                public void onFinish() {
-                                                    i = -1;
-                                                    postPengumuman();
-                                                }
-                                            }.start();
-
-                                        }
-                                    })
-                                    .show();
-
-                        }
                     }
                 }
+            } else {
+                if(pengumumanDescTV.getText().toString().equals("")){
+                    if(dateChoice.equals("")){
+                        // isi tanggal, desc
 
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
+                                .setTitleText("Perhatian")
+                                .setContentText("Harap isi deskripsi dan tanggal pengumuman!")
+                                .setConfirmText("    OK    ")
+                                .setConfirmClickListener(AppCompatDialog::dismiss)
+                                .show();
+
+                    } else {
+                        // isi desc
+
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
+                                .setTitleText("Perhatian")
+                                .setContentText("Harap isi deskripsi pengumuman!")
+                                .setConfirmText("    OK    ")
+                                .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
+                                    @Override
+                                    public void onClick(KAlertDialog sDialog) {
+                                        sDialog.dismiss();
+                                    }
+                                })
+                                .show();
+
+                    }
+                } else {
+                    if(dateChoice.equals("")){
+                        // isi tanggal
+
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
+                                .setTitleText("Perhatian")
+                                .setContentText("Harap isi tanggal pengumuman!")
+                                .setConfirmText("    OK    ")
+                                .setConfirmClickListener(AppCompatDialog::dismiss)
+                                .show();
+
+                    } else {
+                        // lengkap
+
+                        new KAlertDialog(PengumumanActivity.this, KAlertDialog.WARNING_TYPE)
+                                .setTitleText("Kirim pengumuman?")
+                                .setContentText("Yakin untuk kirim pengumuman sekarang?")
+                                .setCancelText("TIDAK")
+                                .setConfirmText("   YA   ")
+                                .showCancelButton(true)
+                                .setCancelClickListener(AppCompatDialog::dismiss)
+                                .setConfirmClickListener(sDialog -> {
+                                    sDialog.dismiss();
+
+                                    pDialog = new KAlertDialog(PengumumanActivity.this, KAlertDialog.PROGRESS_TYPE)
+                                            .setTitleText("Loading");
+                                    pDialog.show();
+                                    pDialog.setCancelable(false);
+                                    new CountDownTimer(1000, 500) {
+                                        public void onTick(long millisUntilFinished) {
+                                            i++;
+                                            switch (i) {
+                                                case 0:
+                                                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
+                                                            (PengumumanActivity.this, R.color.colorGradien));
+                                                    break;
+                                                case 1:
+                                                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
+                                                            (PengumumanActivity.this, R.color.colorGradien2));
+                                                    break;
+                                                case 2:
+                                                case 6:
+                                                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
+                                                            (PengumumanActivity.this, R.color.colorGradien3));
+                                                    break;
+                                                case 3:
+                                                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
+                                                            (PengumumanActivity.this, R.color.colorGradien4));
+                                                    break;
+                                                case 4:
+                                                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
+                                                            (PengumumanActivity.this, R.color.colorGradien5));
+                                                    break;
+                                                case 5:
+                                                    pDialog.getProgressHelper().setBarColor(ContextCompat.getColor
+                                                            (PengumumanActivity.this, R.color.colorGradien6));
+                                                    break;
+                                            }
+                                        }
+                                        public void onFinish() {
+                                            i = -1;
+                                            postPengumuman();
+                                        }
+                                    }.start();
+
+                                })
+                                .show();
+
+                    }
+                }
             }
+
         });
 
     }
@@ -361,7 +326,7 @@ public class PengumumanActivity extends AppCompatActivity {
                         break;
                 }
 
-                pengumumanDatePilih.setText(hariName+", "+String.valueOf(Integer.parseInt(dayDate))+" "+bulanName+" "+yearDate);
+                pengumumanDatePilih.setText(hariName+", "+ Integer.parseInt(dayDate) +" "+bulanName+" "+yearDate);
 
             }, cal.get(android.icu.util.Calendar.YEAR), cal.get(android.icu.util.Calendar.MONTH), cal.get(android.icu.util.Calendar.DATE));
             dpd.show();
@@ -379,7 +344,7 @@ public class PengumumanActivity extends AppCompatActivity {
                         // response
                         JSONObject data = null;
                         try {
-                            Log.d("Success.Response", response.toString());
+                            Log.d("Success.Response", response);
                             data = new JSONObject(response);
                             String status = data.getString("status");
                             if (status.equals("Success")) {
@@ -395,12 +360,9 @@ public class PengumumanActivity extends AppCompatActivity {
                                 pDialog.setTitleText("Terkirim")
                                         .setContentText("Pengumuman berhasil terkirim!")
                                         .setConfirmText("    OK    ")
-                                        .setConfirmClickListener(new KAlertDialog.KAlertClickListener() {
-                                            @Override
-                                            public void onClick(KAlertDialog sDialog) {
-                                                pDialog.dismiss();
-                                                onBackPressed();
-                                            }
+                                        .setConfirmClickListener(sDialog -> {
+                                            pDialog.dismiss();
+                                            onBackPressed();
                                         })
                                         .changeAlertType(KAlertDialog.SUCCESS_TYPE);
 

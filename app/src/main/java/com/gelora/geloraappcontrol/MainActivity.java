@@ -74,33 +74,22 @@ public class MainActivity extends AppCompatActivity {
 
         swipeRefreshLayout = findViewById(R.id.swipe_to_refresh_layout);
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_green_dark, android.R.color.holo_blue_dark, android.R.color.holo_orange_dark, android.R.color.holo_red_dark);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(new Runnable() {
             @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
-                        getControl();
-                    }
-                }, 800);
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+                getControl();
             }
+        }, 800));
+
+        pengumunanSetBTN.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ListPengumumanActivity.class);
+            startActivity(intent);
         });
 
-        pengumunanSetBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListPengumumanActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        resetUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ResetUserActivity.class);
-                startActivity(intent);
-            }
+        resetUser.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ResetUserActivity.class);
+            startActivity(intent);
         });
 
         getControl();
@@ -131,25 +120,18 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         final String url = "https://geloraaksara.co.id/absen-online/api/list_control";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("PaRSE JSON", response + "");
-                        try {
-
-                            String list_control = response.getString("data");
-
-                            GsonBuilder builder =new GsonBuilder();
-                            Gson gson = builder.create();
-                            controls = gson.fromJson(list_control, Control[].class);
-                            adapterListControl = new AdapterListControl(controls,MainActivity.this);
-                            controlRV.setAdapter(adapterListControl);
-
-                            getCountNotification();
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                response -> {
+                    Log.e("PaRSE JSON", response + "");
+                    try {
+                        String list_control = response.getString("data");
+                        GsonBuilder builder =new GsonBuilder();
+                        Gson gson = builder.create();
+                        controls = gson.fromJson(list_control, Control[].class);
+                        adapterListControl = new AdapterListControl(controls,MainActivity.this);
+                        controlRV.setAdapter(adapterListControl);
+                        getCountNotification();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -171,35 +153,24 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/set_control";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("Success.Response", response.toString());
-
-                        getControl();
-
-                    }
+                response -> {
+                    // response
+                    Log.d("Success.Response", response.toString());
+                    getControl();
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                        //connectionFailed();
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
+                    //connectionFailed();
                 }
         )
         {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
-
+                Map<String, String>  params = new HashMap<>();
                 params.put("id", idControl);
                 params.put("status", statusControl);
-
                 return params;
             }
         };
@@ -216,47 +187,37 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/get_list_permohonan_izin_hrd";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        JSONObject data = null;
-                        try {
-                            Log.d("Success.Response", response.toString());
-                            data = new JSONObject(response);
-                            String status = data.getString("status");
-                            if (status.equals("Success")){
-                                String count = data.getString("count");
-
-                                if (count.equals("0")){
-                                    countNotification.setVisibility(View.GONE);
-                                } else {
-                                    countNotification.setVisibility(View.VISIBLE);
-                                    countNotificationTV.setText(count);
-                                }
-
+                response -> {
+                    // response
+                    JSONObject data = null;
+                    try {
+                        Log.d("Success.Response", response.toString());
+                        data = new JSONObject(response);
+                        String status = data.getString("status");
+                        if (status.equals("Success")){
+                            String count = data.getString("count");
+                            if (count.equals("0")){
+                                countNotification.setVisibility(View.GONE);
+                            } else {
+                                countNotification.setVisibility(View.VISIBLE);
+                                countNotificationTV.setText(count);
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                        //connectionFailed();
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
+                    //connectionFailed();
                 }
         )
         {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
+                Map<String, String>  params = new HashMap<>();
                 params.put("request", "request");
                 return params;
             }
