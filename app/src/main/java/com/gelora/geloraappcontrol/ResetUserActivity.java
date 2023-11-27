@@ -69,12 +69,7 @@ public class ResetUserActivity extends AppCompatActivity {
 
         showSoftKeyboard(keywordUserED);
 
-        backBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               onBackPressed();
-            }
-        });
+        backBTN.setOnClickListener(v -> onBackPressed());
 
         keywordUserED.addTextChangedListener(new TextWatcher() {
             @Override
@@ -91,15 +86,12 @@ public class ResetUserActivity extends AppCompatActivity {
 
         });
 
-        keywordUserED.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL) {
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                }
-                return false;
+        keywordUserED.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
             }
+            return false;
         });
 
     }
@@ -108,33 +100,24 @@ public class ResetUserActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/cari_user";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        try {
-                            Log.d("Success.Response", response.toString());
-
-                            JSONObject data = new JSONObject(response);
-                            String list = data.getString("data");
-                            GsonBuilder builder =new GsonBuilder();
-                            Gson gson = builder.create();
-                            userSearches = gson.fromJson(list, UserSearch[].class);
-                            adapterListUser = new AdapterListUser(userSearches, ResetUserActivity.this);
-                            userRV.setAdapter(adapterListUser);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                response -> {
+                    // response
+                    try {
+                        Log.d("Success.Response", response);
+                        JSONObject data = new JSONObject(response);
+                        String list = data.getString("data");
+                        GsonBuilder builder = new GsonBuilder();
+                        Gson gson = builder.create();
+                        userSearches = gson.fromJson(list, UserSearch[].class);
+                        adapterListUser = new AdapterListUser(userSearches, ResetUserActivity.this);
+                        userRV.setAdapter(adapterListUser);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
                 }
         )
         {
@@ -176,35 +159,24 @@ public class ResetUserActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String url = "https://geloraaksara.co.id/absen-online/api/set_user";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("Success.Response", response.toString());
-
-                        getUser(keywordUserED.getText().toString());
-
-                    }
+                response -> {
+                    // response
+                    Log.d("Success.Response", response.toString());
+                    getUser(keywordUserED.getText().toString());
                 },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("Error.Response", error.toString());
-                        //connectionFailed();
-                    }
+                error -> {
+                    // error
+                    Log.d("Error.Response", error.toString());
+                    //connectionFailed();
                 }
         )
         {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String>  params = new HashMap<String, String>();
-
+                Map<String, String>  params = new HashMap<>();
                 params.put("nik", nik);
                 params.put("status", statusUser);
-
                 return params;
             }
         };
