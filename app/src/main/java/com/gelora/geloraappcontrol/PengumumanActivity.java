@@ -59,7 +59,6 @@ public class PengumumanActivity extends AppCompatActivity {
                 view = new View(PengumumanActivity.this);
             }
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
             datePicker();
         });
 
@@ -75,7 +74,6 @@ public class PengumumanActivity extends AppCompatActivity {
                 if(pengumumanDescTV.getText().toString().equals("")){
                     if(dateChoice.equals("")){
                         // isi tanggal, desc dan title
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                             .setTitleText("Perhatian")
                             .setContentText("Harap isi semua data!")
@@ -85,7 +83,6 @@ public class PengumumanActivity extends AppCompatActivity {
 
                     } else {
                         // isi desc dan title
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi judul dan deskripsi pengumuman!")
@@ -97,7 +94,6 @@ public class PengumumanActivity extends AppCompatActivity {
                 } else {
                     if(dateChoice.equals("")){
                         // isi tanggal dan title
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi judul dan tanggal pengumuman!")
@@ -107,7 +103,6 @@ public class PengumumanActivity extends AppCompatActivity {
 
                     } else {
                         // isi title
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi judul pengumuman!")
@@ -121,7 +116,6 @@ public class PengumumanActivity extends AppCompatActivity {
                 if(pengumumanDescTV.getText().toString().equals("")){
                     if(dateChoice.equals("")){
                         // isi tanggal, desc
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi deskripsi dan tanggal pengumuman!")
@@ -131,7 +125,6 @@ public class PengumumanActivity extends AppCompatActivity {
 
                     } else {
                         // isi desc
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi deskripsi pengumuman!")
@@ -143,7 +136,6 @@ public class PengumumanActivity extends AppCompatActivity {
                 } else {
                     if(dateChoice.equals("")){
                         // isi tanggal
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
                                 .setTitleText("Perhatian")
                                 .setContentText("Harap isi tanggal pengumuman!")
@@ -153,7 +145,6 @@ public class PengumumanActivity extends AppCompatActivity {
 
                     } else {
                         // lengkap
-
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.WARNING_TYPE)
                                 .setTitleText("Kirim pengumuman?")
                                 .setContentText("Yakin untuk kirim pengumuman sekarang?")
@@ -367,6 +358,5 @@ public class PengumumanActivity extends AppCompatActivity {
         requestQueue.add(postRequest);
 
     }
-
 
 }
