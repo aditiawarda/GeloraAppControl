@@ -94,7 +94,7 @@ public class ResetUserActivity extends AppCompatActivity {
 
     private void getUser(String keyword) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/cari_user";
+        final String url = "https://hrisgelora.co.id/api/cari_user";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response
@@ -153,7 +153,7 @@ public class ResetUserActivity extends AppCompatActivity {
 
     private void setUser(String nik, String statusUser) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/set_user";
+        final String url = "https://hrisgelora.co.id/api/set_user";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response

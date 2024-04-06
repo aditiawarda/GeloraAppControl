@@ -100,7 +100,7 @@ public class ListPengumumanActivity extends AppCompatActivity {
 
     private void setPengumuman(String id, String status) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/set_pengumuman_update";
+        final String url = "https://hrisgelora.co.id/api/set_pengumuman_update";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response
@@ -134,7 +134,7 @@ public class ListPengumumanActivity extends AppCompatActivity {
 
     private void getPengumuman() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/list_data_pengumuman";
+        final String url = "https://hrisgelora.co.id/api/list_data_pengumuman";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response

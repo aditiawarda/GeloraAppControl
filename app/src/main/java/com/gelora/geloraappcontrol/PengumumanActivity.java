@@ -301,7 +301,7 @@ public class PengumumanActivity extends AppCompatActivity {
 
     private void postPengumuman() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/set_pengumuman";
+        final String url = "https://hrisgelora.co.id/api/set_pengumuman";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response

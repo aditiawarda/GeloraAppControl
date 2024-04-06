@@ -102,7 +102,7 @@ public class DeviceDetailActivity extends AppCompatActivity {
 
     private void getDevice(String nik) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/get_device_id";
+        final String url = "https://hrisgelora.co.id/api/get_device_id";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response
@@ -142,7 +142,7 @@ public class DeviceDetailActivity extends AppCompatActivity {
 
     private void setDevice(String id, String status) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/set_device_id";
+        final String url = "https://hrisgelora.co.id/api/set_device_id";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response

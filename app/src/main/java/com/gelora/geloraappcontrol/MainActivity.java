@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getControl() {
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        final String url = "https://geloraaksara.co.id/absen-online/api/list_control";
+        final String url = "https://hrisgelora.co.id/api/list_control";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     Log.e("PaRSE JSON", response + "");
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setControl(String idControl, String statusControl) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/set_control";
+        final String url = "https://hrisgelora.co.id/api/set_control";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getCountNotification() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String url = "https://geloraaksara.co.id/absen-online/api/get_list_permohonan_izin_hrd";
+        final String url = "https://hrisgelora.co.id/api/get_list_permohonan_izin_hrd";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     // response

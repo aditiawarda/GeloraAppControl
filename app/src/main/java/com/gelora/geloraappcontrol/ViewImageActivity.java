@@ -40,8 +40,8 @@ public class ViewImageActivity extends AppCompatActivity {
 
         titlePageTV.setText("FOTO PROFIL");
 
-        if(url.equals("https://geloraaksara.co.id/absen-online/upload/avatar/null")){
-            Picasso.get().load("https://geloraaksara.co.id/absen-online/upload/avatar/default_profile.jpg").networkPolicy(NetworkPolicy.NO_CACHE)
+        if(url.equals("https://hrisgelora.co.id/upload/avatar/null")){
+            Picasso.get().load("https://hrisgelora.co.id/upload/avatar/default_profile.jpg").networkPolicy(NetworkPolicy.NO_CACHE)
                     .memoryPolicy(MemoryPolicy.NO_CACHE)
                     .into(mainImage);
         } else {

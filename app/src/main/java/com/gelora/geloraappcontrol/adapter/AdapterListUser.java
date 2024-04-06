@@ -71,7 +71,7 @@ public class AdapterListUser extends RecyclerView.Adapter<AdapterListUser.MyView
         });
 
         if(userSearch.getAvatar()!=null){
-            Picasso.get().load("https://geloraaksara.co.id/absen-online/upload/avatar/"+userSearch.getAvatar()).networkPolicy(NetworkPolicy.NO_CACHE)
+            Picasso.get().load("https://hrisgelora.co.id/upload/avatar/"+userSearch.getAvatar()).networkPolicy(NetworkPolicy.NO_CACHE)
                     .memoryPolicy(MemoryPolicy.NO_CACHE)
                     .into(myViewHolder.profileImage);
         }
@@ -85,7 +85,7 @@ public class AdapterListUser extends RecyclerView.Adapter<AdapterListUser.MyView
 
         myViewHolder.profileImage.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, ViewImageActivity.class);
-            intent.putExtra("url","https://geloraaksara.co.id/absen-online/upload/avatar/"+userSearch.getAvatar());
+            intent.putExtra("url","https://hrisgelora.co.id/upload/avatar/"+userSearch.getAvatar());
             mContext.startActivity(intent);
         });
 
