@@ -147,9 +147,7 @@ public class DeviceDetailActivity extends AppCompatActivity {
                 response -> {
                     // response
                     Log.d("Success.Response", response.toString());
-
                     getDevice(nikUser);
-
                 },
                 error -> {
                     // error
@@ -161,10 +159,8 @@ public class DeviceDetailActivity extends AppCompatActivity {
             protected Map<String, String> getParams()
             {
                 Map<String, String>  params = new HashMap<>();
-
                 params.put("id", id);
                 params.put("status", status);
-
                 return params;
             }
         };
