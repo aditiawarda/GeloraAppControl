@@ -37,7 +37,6 @@ public class DeviceDetailActivity extends AppCompatActivity {
 
     String nikUser, namaUser;
     TextView namaUserTV, nikUserTV, backBTN;
-
     private RecyclerView deviceRV;
     private DeviceID[] deviceIDS;
     private AdapterDeviceID adapterDeviceID;
