@@ -111,7 +111,7 @@ public class DeviceDetailActivity extends AppCompatActivity {
 
                         JSONObject data = new JSONObject(response);
                         String list = data.getString("data");
-                        GsonBuilder builder =new GsonBuilder();
+                        GsonBuilder builder = new GsonBuilder();
                         Gson gson = builder.create();
                         deviceIDS = gson.fromJson(list, DeviceID[].class);
                         adapterDeviceID = new AdapterDeviceID(deviceIDS, DeviceDetailActivity.this);
