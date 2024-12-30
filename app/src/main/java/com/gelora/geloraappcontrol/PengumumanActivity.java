@@ -80,7 +80,6 @@ public class PengumumanActivity extends AppCompatActivity {
                             .setConfirmText("    OK    ")
                             .setConfirmClickListener(AppCompatDialog::dismiss)
                             .show();
-
                     } else {
                         // isi desc dan title
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
@@ -89,7 +88,6 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setConfirmText("    OK    ")
                                 .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
-
                     }
                 } else {
                     if(dateChoice.equals("")){
@@ -100,7 +98,6 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setConfirmText("    OK    ")
                                 .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
-
                     } else {
                         // isi title
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
@@ -109,7 +106,6 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setConfirmText("    OK    ")
                                 .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
-
                     }
                 }
             } else {
@@ -122,7 +118,6 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setConfirmText("    OK    ")
                                 .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
-
                     } else {
                         // isi desc
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.ERROR_TYPE)
@@ -131,7 +126,6 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setConfirmText("    OK    ")
                                 .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
-
                     }
                 } else {
                     if(dateChoice.equals("")){
@@ -142,7 +136,6 @@ public class PengumumanActivity extends AppCompatActivity {
                                 .setConfirmText("    OK    ")
                                 .setConfirmClickListener(AppCompatDialog::dismiss)
                                 .show();
-
                     } else {
                         // lengkap
                         new KAlertDialog(PengumumanActivity.this, KAlertDialog.WARNING_TYPE)
@@ -198,7 +191,6 @@ public class PengumumanActivity extends AppCompatActivity {
 
                                 })
                                 .show();
-
                     }
                 }
             }

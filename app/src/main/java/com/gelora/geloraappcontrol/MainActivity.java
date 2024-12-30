@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private Control[] controls;
     private AdapterListControl adapterListControl;
     SwipeRefreshLayout swipeRefreshLayout;
-
     LinearLayout countNotification, resetUser, permohonanMasukBTN, pengumunanSetBTN;
     TextView countNotificationTV;
 
@@ -125,13 +124,10 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }, Throwable::printStackTrace);
-
         requestQueue.add(request);
-
         request.setRetryPolicy(new DefaultRetryPolicy(0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
     }
 
     private void setControl(String idControl, String statusControl) {

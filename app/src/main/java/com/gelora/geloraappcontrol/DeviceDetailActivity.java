@@ -107,7 +107,6 @@ public class DeviceDetailActivity extends AppCompatActivity {
                     // response
                     try {
                         Log.d("Success.Response", response);
-
                         JSONObject data = new JSONObject(response);
                         String list = data.getString("data");
                         GsonBuilder builder = new GsonBuilder();
@@ -115,7 +114,6 @@ public class DeviceDetailActivity extends AppCompatActivity {
                         deviceIDS = gson.fromJson(list, DeviceID[].class);
                         adapterDeviceID = new AdapterDeviceID(deviceIDS, DeviceDetailActivity.this);
                         deviceRV.setAdapter(adapterDeviceID);
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

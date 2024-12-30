@@ -38,7 +38,6 @@ public class ListPengumumanActivity extends AppCompatActivity {
 
     LinearLayout newPengumumanBtn;
     TextView backBTN;
-
     private RecyclerView pengumumanRV;
     private DataPengumuman[] dataPengumuman;
     private AdapterPengumuman adapterPengumuman;
@@ -143,7 +142,6 @@ public class ListPengumumanActivity extends AppCompatActivity {
                     try {
                         data = new JSONObject(response);
                         String status = data.getString("status");
-
                         if (status.equals("Success")){
                             String list = data.getString("data");
                             GsonBuilder builder =new GsonBuilder();
