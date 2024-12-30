@@ -41,7 +41,6 @@ public class ResetUserActivity extends AppCompatActivity {
 
     EditText keywordUserED;
     TextView backBTN;
-
     private RecyclerView userRV;
     private UserSearch[] userSearches;
     private AdapterListUser adapterListUser;
@@ -79,7 +78,6 @@ public class ResetUserActivity extends AppCompatActivity {
                 String keyword = keywordUserED.getText().toString();
                 getUser(keyword);
             }
-
         });
 
         keywordUserED.setOnEditorActionListener((v, actionId, event) -> {
